@@ -1,0 +1,25 @@
+{
+  "name": "nfjv-hacks",
+  "version": "1.0.0",
+  "description": "NFJV Hacks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyle4346/NFJV-Hacks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyle4346/NFJV-Hacks/issues"
+  },
+  "homepage": "https://github.com/kyle4346/NFJV-Hacks#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^4.1.4",
+    "node.js": "^0.0.1-security",
+    "nodemon": "^2.0.15"
+  }
+}
