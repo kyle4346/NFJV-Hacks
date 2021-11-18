@@ -11,6 +11,7 @@ This will need:
 - mongodb compass : https://www.mongodb.com/try/download/compass
 - vue.js
 
+Please copy the link for this project code by going to the green "code" tab next to "file" then copy the link that shows there.
 # Installation Continued
 Once you're able to get into visual studio code... Please go to the bottom-left of the page and go to "extensions"
 
@@ -21,7 +22,9 @@ There you will have to search and download these extensions:
 - Vetur
 
 Once you have installed these extensions, you also have to install modules through npm:
--  type "npm install"
+- go to terminal tab on top left side, then create a new terminal
+- In the terminal, type "cd frontend"
+-  In the terminal, type "npm install"
 
 # Running program
 
