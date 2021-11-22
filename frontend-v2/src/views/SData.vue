@@ -1,20 +1,43 @@
 <template>
-  <div>
-    <b-table striped hover :items="items"></b-table>
+  <div id="app">
+    <flatfile-button
+      :licenseKey="licenseKey"
+      :customer="customer"
+      :settings="settings"
+      :onData="onData">
+      Import Contacts
+    </flatfile-button>
   </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        items: [
-          { age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-          { age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-          { age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-          { age: 38, first_name: 'Jami', last_name: 'Carney' }
-        ]
-      }
+import { FlatfileButton } from '@flatfile/vuejs';
+
+export default {
+  name: 'App',
+  components: {
+    FlatfileButton,
+  },
+  data: () => ({
+    licenseKey: 'd0ce60a3-e739-4c4d-8bab-a8df437c7d6a',
+    customer: {
+      userId: '12345',
+    },
+    settings: {
+      type: 'test import',
+      fields: [
+        { label: 'name', key: 'Name' },
+        { label: 'email', key: 'Email' }
+      ]
+    },
+  }),
+  methods: {
+    // *optional* shown here for demonstration purposes
+    onData: function (results) {
+      // Do something with the data here
+      console.log(results);
+      return "Done!";
     }
-  }
+  },
+}
 </script>
