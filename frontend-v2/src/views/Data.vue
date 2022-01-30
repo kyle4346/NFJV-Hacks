@@ -20,6 +20,9 @@
           <td>{{user_alias.item}}</td>
           <td>{{user_alias.price}}</td>
           <td>{{user_alias.quantity}}</td>
+          <td><img alt="trash" src="../assets/trash.jpg"></td>
+          
+
         </tr>
       </tbody>
     </table>
@@ -38,16 +41,6 @@ export default {
   },
   mounted() {
     axios.get('http://localhost:3000/record')
-    .then((resp) => {
-      console.log(resp.data);
-      this.User = resp.data;
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  },
-  methods() {
-    axios.delete('http://localhost:3000/record')
     .then((resp) => {
       console.log(resp.data);
       this.User = resp.data;
