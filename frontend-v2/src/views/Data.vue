@@ -20,7 +20,8 @@
           <td>{{user_alias.item}}</td>
           <td>{{user_alias.price}}</td>
           <td>{{user_alias.quantity}}</td>
-          <td><img alt="trash" src="../assets/trash.jpg"></td>
+          <td><img alt="trash" src="../assets/trash.jpg">
+          <img alt="Add" src="../assets/Add.png"></td>
           
 
         </tr>
