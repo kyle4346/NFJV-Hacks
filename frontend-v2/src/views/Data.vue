@@ -6,6 +6,7 @@
     <table class="table table-striped table-borders">
       <thead>
         <tr>
+          <th>ID</th>
           <th>RED</th>
           <th>IR</th>
           <th>HR</th>
@@ -16,16 +17,19 @@
       </thead>
       <tbody>
         
-        <tr v-for="user_alias in User" v-bind:key="user_alias.red">
+        <tr v-for="user_alias in User" v-bind:key="user_alias._id">
+          <td> {{user_alias._id}}</td>
           <td> {{user_alias.red}}</td>
           <td>{{user_alias.ir}}</td>
           <td>{{user_alias.HR}}</td>
           <td>{{user_alias.HRvalid}}</td>
           <td>{{user_alias.SPO2}}</td>
           <td>{{user_alias.SPO2valid}}</td>
+
           <td><img alt="trash" src="../assets/trash.jpg">
           <img alt="Add" src="../assets/Add.png">
-          <img alt="info" src="../assets/info.png"></td>
+          <img alt="info" src="../assets/info.png" >
+          </td>
           
 
         </tr>
@@ -36,6 +40,7 @@
 
 <script>
 import axios from 'axios';
+
 
 export default {
   name:'Data',
@@ -53,6 +58,10 @@ export default {
     .catch((error) => {
       console.log(error)
     })
+
+    axios.delete()
+    
+
   }
 }
 
