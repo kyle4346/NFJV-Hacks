@@ -61,7 +61,6 @@ export default {
 
     axios.delete()
     
-
   }
 }
 
