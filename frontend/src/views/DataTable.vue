@@ -7,32 +7,27 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>RED</th>
-          <th>IR</th>
-          <th>HR</th>
-          <th>HR Valid</th>
-          <th>SPO2</th>
-          <th>SPO2 Valid</th>
+          <th>Heartrate</th>
+          <th>Oxygen</th>
+          <th>Confidence</th>
+          <th>Status</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         
-        <tr v-for="user_alias in User" v-bind:key="user_alias._id">
-          <td> {{user_alias._id}}</td>
-          <td> {{user_alias.red}}</td>
-          <td>{{user_alias.ir}}</td>
-          <td>{{user_alias.HR}}</td>
-          <td>{{user_alias.HRvalid}}</td>
-          <td>{{user_alias.SPO2}}</td>
-          <td>{{user_alias.SPO2valid}}</td>
+        <tr v-for="user_alias in User" v-bind:key="user_alias.ID">
+          <td>{{ user_alias.ID }}</td>
+          <td>{{ user_alias.Heartrate }}</td>
+          <td>{{ user_alias.Oxygen }}</td>
+          <td>{{ user_alias.Confidence }}</td>
+          <td>{{ user_alias.Status }}</td>
 
-          <td><img alt="trash" class="ic" src="../assets/trash.jpg">
-          <img alt="Add" class="ic2" src="../assets/Add.png">
-          <img alt="info" class="ic3" src="../assets/info.png"></td>
-          
-          
-
+          <td>
+            <img alt="trash" class="ic" src="../assets/trash.jpg" />
+            <img alt="Add" class="ic2" src="../assets/Add.png" />
+            <img alt="info" class="ic3" src="../assets/info.png" />
+          </td>
         </tr>
       </tbody>
     </table>

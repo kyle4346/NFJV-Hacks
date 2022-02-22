@@ -3,6 +3,7 @@
     <h1>Master Data Table</h1>
     <button v-on:click="senddata">Send Data to Database</button>
 
+    <line-chart :data="ECGS"></line-chart>
     <table class="styled-table">
       <thead>
         <tr>
@@ -15,20 +16,18 @@
         </tr>
       </thead>
       <tbody>
-        
         <tr v-for="user_alias in User" v-bind:key="user_alias.ID">
-          <td> {{user_alias.ID}}</td>
-          <td> {{user_alias.Heartrate}}</td>
-          <td>{{user_alias.Oxygen}}</td>
-          <td>{{user_alias.Confidence}}</td>
-          <td>{{user_alias.Status}}</td>
+          <td>{{ user_alias.ID }}</td>
+          <td>{{ user_alias.Heartrate }}</td>
+          <td>{{ user_alias.Oxygen }}</td>
+          <td>{{ user_alias.Confidence }}</td>
+          <td>{{ user_alias.Status }}</td>
 
-          <td><img alt="trash" class="ic" src="../assets/trash.jpg">
-          <img alt="Add" class="ic2" src="../assets/Add.png">
-          <img alt="info" class="ic3" src="../assets/info.png"></td>
-          
-          
-
+          <td>
+            <img alt="trash" class="ic" src="../assets/trash.jpg" />
+            <img alt="Add" class="ic2" src="../assets/Add.png" />
+            <img alt="info" class="ic3" src="../assets/info.png" />
+          </td>
         </tr>
       </tbody>
     </table>
@@ -36,19 +35,21 @@
 </template>
 
 <script>
-import HRSPO2 from '../../HRSPO2.json'
-import axios from 'axios'
-
+import HRSPO2 from "../../HRSPO2.json";
+import ECG from "../../ECG.json"
+import axios from "axios";
 
 export default {
-  name:'SDataTable',
+  name: "SDataTable",
   data() {
-    return{
-      User: []
-    }
+    return {
+      User: [],
+      ECGS: [],
+    };
   },
   created() {
     this.User = HRSPO2;
+    this.ECGS = ECG;
   },
   methods: {
     // senddata () {
@@ -60,31 +61,28 @@ export default {
     //   console.log(error)
     // })
     // }
-    senddata () {
-  axios.post(
-    'http://localhost:3000/RPMS/records', 
-    this.User
-  )
-    .then(() => {
-      this.$router.push('/sdata')
-      this.User = {
-        ID: '',
-        Heartrate: '',
-        Oxygen: '',
-        Confidence: '',
-        Status: ''
-      }
-    })
-    .then((response) =>{
-      console.log(response)
-    })
-    .catch((err) =>{
-      console.log( err)
-    })
-}
-  }
-}
-
+    senddata() {
+      axios
+        .post("http://localhost:3000/RPMS/records", this.User)
+        .then(() => {
+          this.$router.push("/sdata");
+          this.User = {
+            ID: "",
+            Heartrate: "",
+            Oxygen: "",
+            Confidence: "",
+            Status: "",
+          };
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  },
+};
 </script>
 
 <style scoped>
