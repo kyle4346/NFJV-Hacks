@@ -49,7 +49,7 @@ app.post('/RPMS/records', (req, res) => {
     console.log(intake);
 
     // Sending request to create a data
-    IntakeDb.collection('records').insertOne(req.body, function (err, info) {
+    IntakeDb.collection('records').insertMany(req.body, function (err, info) {
         // debugs
         console.log(err);
         console.log(info);

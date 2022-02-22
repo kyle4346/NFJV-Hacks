@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import db from '../../db.json'
+import HRSPO2 from '../../HRSPO2.json'
 import axios from 'axios'
 
 
@@ -44,8 +44,11 @@ export default {
   name:'SDataTable',
   data() {
     return{
-      User: db
+      User: []
     }
+  },
+  created() {
+    this.User = HRSPO2;
   },
   methods: {
     // senddata () {
@@ -63,17 +66,20 @@ export default {
     this.User
   )
     .then(() => {
-      this.$router.push('/RPMS/records')
-      this.User = db
+      this.$router.push('/sdata')
+      this.User = {
+        ID: '',
+        Heartrate: '',
+        Oxygen: '',
+        Confidence: '',
+        Status: ''
+      }
     })
-    .then(function (response) {
-      console.log('Response', response)
+    .then((response) =>{
+      console.log(response)
     })
-    .then(function (res) {
-      console.log(res.json)
-    })
-    .catch(function (err) {
-      console.log('Error', err)
+    .catch((err) =>{
+      console.log( err)
     })
 }
   }
