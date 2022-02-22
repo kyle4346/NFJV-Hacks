@@ -53,7 +53,7 @@ export default {
   mounted() {
     axios.get('http://localhost:3000/record')
     .then((resp) => {
-      console.log(resp.data);
+      console.log(this.User);
       this.User = resp.data;
     })
     .catch((error) => {

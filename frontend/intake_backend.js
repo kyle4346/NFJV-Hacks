@@ -40,7 +40,7 @@ app.get('/record', (req, res) => {
     });
 });
 
-app.post('/records', (req, res) => {
+app.post('/RPMS/records', (req, res) => {
     // Part 1 We will be coding here
     // Part 2
     const intake = req.body;
